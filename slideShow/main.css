@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: gainsboro;
+}
+#container {
+    width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    -ms-align-items: center;
+    align-items: center;
+    position: relative;
+}
+#slidesBox{
+    height: 600px;
+    width: 600px;
+    background-image: url(img/1.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: baseline;
+    align-items: flex-end;
+    transition: 0.5s linear;
+}
+#prev, #next{
+    color: azure;
+    font-size: 4em;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.2s;
+}
+#prev:hover, #next:hover{
+    color: burlywood;
+}
+#prev{
+    left: 110px;
+}
+#next{
+    right: 110px;
+}
+form{
+    transition: 1s;
+}
