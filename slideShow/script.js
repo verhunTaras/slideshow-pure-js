@@ -11,13 +11,18 @@ function nextArrow() {
     document.forms.btns.elements[i].checked = true;
 }
 
-next.onclick = function () {
+document.body.onkeydown = function(e){
+	if(e.keyCode==39) right();
+	if(e.keyCode==37) left();
+}
+
+var right = next.onclick = function () {
     clearInterval(interval);
     nextArrow();
     interval = setInterval(nextArrow, 2000);
 }
 
-prev.onclick = function () {
+var left = prev.onclick = function () {
     clearInterval(interval);
     i--;
     if (i == -1) {
@@ -35,4 +40,20 @@ for (var j = 0; j < 8; j++) {
         i = this.value;
         interval = setInterval(nextArrow, 2000);
     }
+    var div;
+    document.forms.btns.elements[j].onmouseover = function(e){
+      var div = document.createElement('div');
+      div.style.width = '60px';
+      div.style.height = '60px';
+      div.style.backgroundImage = "url('" + arr[this.value] + "')";
+      div.style.backgroundSize = 'cover';
+      div.setAttribute('id', 'div');
+      div.style.position="absolute";
+      div.style.top = e.target.offsetTop-70+'px';
+      div.style.left = e.target.offsetLeft-e.target.offsetWidth*2+'px';
+      div.style.border="1px solid gray"
+      slidesBox.appendChild(div);
+    }
+    document.forms.btns.elements[j].onmouseleave=function(){ document.getElementById('div').parentNode.removeChild(document.getElementById('div')) }
+
 }
