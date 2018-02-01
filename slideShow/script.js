@@ -11,9 +11,14 @@ function nextArrow() {
     document.forms.btns.elements[i].checked = true;
 }
 
+document.body.onkeyup=function(e){
+  if(e.keyCode==32) right();
+}
+
 document.body.onkeydown = function(e){
 	if(e.keyCode==39) right();
 	if(e.keyCode==37) left();
+  if(e.keyCode==32) clearInterval(interval);;
 }
 
 var right = next.onclick = function () {
